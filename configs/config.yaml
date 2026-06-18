@@ -1,0 +1,82 @@
+# ============================================================
+# Configuración general del experimento
+# ============================================================
+
+# --- Dataset ---
+dataset_path: "lyrics_10k.csv"
+text_column: "lyrics"
+label_column: "explicit"
+
+# --- Reproducibilidad ---
+seed: 42
+
+# --- Split estratificado (Configuración B) ---
+train_ratio: 0.70
+val_ratio: 0.15
+test_ratio: 0.15
+
+# --- Directorios de salida ---
+output_dir: "output"
+predictions_dir: "output/predictions"
+metrics_dir: "output/metrics"
+
+# --- Regex baseline ---
+regex_ignore_case: true
+
+# --- Modelos especializados ---
+specialized_models:
+  toxic-roberta:
+    name: "Intel/toxic-prompt-roberta"
+    # Etiqueta positiva del modelo -> explicit
+    toxic_label: "LABEL_1"
+  unbiased-toxic:
+    name: "unitary/unbiased-toxic-roberta"
+    # Usa score de 'toxicity' > 0.5 -> explicit
+    toxic_label: "toxic"
+  snlp-toxicity:
+    name: "s-nlp/roberta_toxicity_classifier"
+    # LABEL_1 = toxic -> explicit
+    toxic_label: "toxic"
+  twitter-offensive:
+    name: "cardiffnlp/twitter-roberta-base-offensive"
+    # LABEL_1 = offensive -> explicit
+    toxic_label: "offensive"
+
+# --- LLMs generales ---
+llm_models:
+  #mistral:
+  #  name: "mistralai/Mistral-7B-Instruct-v0.3"
+  llama:
+    name: "meta-llama/Llama-3.1-8B-Instruct"
+  qwen:
+    name: "Qwen/Qwen2.5-7B-Instruct"
+  #phi:
+  #  name: "microsoft/Phi-4-mini-instruct"
+
+
+# --- Fine-tuning ---
+finetune_models:
+  bert:
+    name: "google-bert/bert-base-uncased"
+  roberta:
+    name: "FacebookAI/roberta-base"
+  deberta:
+    name: "microsoft/deberta-v3-base"
+
+finetune_params:
+  max_length: 512
+  batch_size: 16
+  learning_rate: 2.0e-5
+  num_epochs: 5
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  early_stopping_patience: 2
+
+# --- LLM inference ---
+llm_max_new_tokens: 10
+llm_batch_size: 4
+llm_max_length: 2048
+
+# --- K-shot (experimentación con número de ejemplos) ---
+# Lista de valores de k a evaluar (siempre pares, k/2 explicit + k/2 clean)
+k_shot_values: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]

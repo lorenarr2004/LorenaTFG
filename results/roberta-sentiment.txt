@@ -1,0 +1,11 @@
+Model: roberta-sentiment
+Accuracy:  0.752
+Precision: 0.430
+Recall:    0.492
+F1:        0.459
+
+Confusion Matrix:
+                Predicted
+              No    Yes
+Actual No    5608   1211
+       Yes    943    912

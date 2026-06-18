@@ -1,0 +1,53 @@
+Traceback (most recent call last):
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/env/lib/python3.10/site-packages/transformers/convert_slow_tokenizer.py", line 1640, in extract_vocab_merges_from_model
+    from tiktoken.load import load_tiktoken_bpe
+ModuleNotFoundError: No module named 'tiktoken'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/env/lib/python3.10/site-packages/transformers/convert_slow_tokenizer.py", line 1783, in convert_slow_tokenizer
+    ).converted()
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/env/lib/python3.10/site-packages/transformers/convert_slow_tokenizer.py", line 1677, in converted
+    tokenizer = self.tokenizer()
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/env/lib/python3.10/site-packages/transformers/convert_slow_tokenizer.py", line 1670, in tokenizer
+    vocab_scores, merges = self.extract_vocab_merges_from_model(self.vocab_file)
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/env/lib/python3.10/site-packages/transformers/convert_slow_tokenizer.py", line 1642, in extract_vocab_merges_from_model
+    raise ValueError(
+ValueError: `tiktoken` is required to read a `tiktoken` file. Install it with `pip install tiktoken`.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/env/lib/python3.10/site-packages/transformers/tokenization_utils_base.py", line 2343, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/env/lib/python3.10/site-packages/transformers/models/xlm_roberta/tokenization_xlm_roberta_fast.py", line 108, in __init__
+    super().__init__(
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/env/lib/python3.10/site-packages/transformers/tokenization_utils_fast.py", line 139, in __init__
+    fast_tokenizer = convert_slow_tokenizer(self, from_tiktoken=True)
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/env/lib/python3.10/site-packages/transformers/convert_slow_tokenizer.py", line 1785, in convert_slow_tokenizer
+    raise ValueError(
+ValueError: Converting from SentencePiece and Tiktoken failed, if a converter for SentencePiece is available, provide a model path with a SentencePiece tokenizer.model file.Currently available slow->fast converters: ['AlbertTokenizer', 'BartTokenizer', 'BarthezTokenizer', 'BertTokenizer', 'BigBirdTokenizer', 'BlenderbotTokenizer', 'CamembertTokenizer', 'CLIPTokenizer', 'CodeGenTokenizer', 'ConvBertTokenizer', 'DebertaTokenizer', 'DebertaV2Tokenizer', 'DistilBertTokenizer', 'DPRReaderTokenizer', 'DPRQuestionEncoderTokenizer', 'DPRContextEncoderTokenizer', 'ElectraTokenizer', 'FNetTokenizer', 'FunnelTokenizer', 'GPT2Tokenizer', 'HerbertTokenizer', 'LayoutLMTokenizer', 'LayoutLMv2Tokenizer', 'LayoutLMv3Tokenizer', 'LayoutXLMTokenizer', 'LongformerTokenizer', 'LEDTokenizer', 'LxmertTokenizer', 'MarkupLMTokenizer', 'MBartTokenizer', 'MBart50Tokenizer', 'MPNetTokenizer', 'MobileBertTokenizer', 'MvpTokenizer', 'NllbTokenizer', 'OpenAIGPTTokenizer', 'PegasusTokenizer', 'Qwen2Tokenizer', 'RealmTokenizer', 'ReformerTokenizer', 'RemBertTokenizer', 'RetriBertTokenizer', 'RobertaTokenizer', 'RoFormerTokenizer', 'SeamlessM4TTokenizer', 'SqueezeBertTokenizer', 'T5Tokenizer', 'UdopTokenizer', 'WhisperTokenizer', 'XLMRobertaTokenizer', 'XLNetTokenizer', 'SplinterTokenizer', 'XGLMTokenizer', 'LlamaTokenizer', 'CodeLlamaTokenizer', 'GemmaTokenizer', 'Phi3Tokenizer']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/zero_shot_nli_classifier.py", line 777, in <module>
+    main()
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/zero_shot_nli_classifier.py", line 717, in main
+    pipe, tokenizer, config = create_pipeline(args.model, device)
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/zero_shot_nli_classifier.py", line 394, in create_pipeline
+    tokenizer = AutoTokenizer.from_pretrained(model_id)
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/env/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 1159, in from_pretrained
+    return tokenizer_class_fast.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/env/lib/python3.10/site-packages/transformers/tokenization_utils_base.py", line 2097, in from_pretrained
+    return cls._from_pretrained(
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/env/lib/python3.10/site-packages/transformers/tokenization_utils_base.py", line 2344, in _from_pretrained
+    except import_protobuf_decode_error():
+  File "/mnt/homeGPU/jherrera/TFG/Lorena/env/lib/python3.10/site-packages/transformers/tokenization_utils_base.py", line 87, in import_protobuf_decode_error
+    raise ImportError(PROTOBUF_IMPORT_ERROR.format(error_message))
+ImportError: 
+ requires the protobuf library but it was not found in your environment. Check out the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+

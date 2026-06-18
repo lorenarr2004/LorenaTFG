@@ -1,0 +1,22 @@
+========================================
+Ejecutando Zero-Shot NLI
+Modelo: deberta-v3-large
+Task ID: 1
+Fecha: Fri 13 Feb 2026 09:09:50 AM UTC
+========================================
+
+======================================================================
+ZERO-SHOT NLI CLASSIFIER - EXPLICIT CONTENT DETECTION
+======================================================================
+🚀 GPU detectada: NVIDIA A100-SXM4-40GB (39.4 GB VRAM)
+
+📂 Cargando dataset desde: results/lyrics/lyrics_10k.csv
+   Filas totales: 8674
+   Distribución: 1855 explicit (21.4%) | 6819 clean (78.6%)
+
+🔧 Cargando modelo: microsoft/deberta-v3-large-mnli
+   DeBERTa V3 Large fine-tuned on MNLI (435M params)
+========================================
+Finalizado: deberta-v3-large
+Tiempo: Fri 13 Feb 2026 09:12:27 AM UTC
+========================================

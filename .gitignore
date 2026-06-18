@@ -1,0 +1,8 @@
+env/
+output/
+output_old/
+*.sh
+*csv
+*.md__pycache__/
+*.pyc
+.env

@@ -1,0 +1,11 @@
+Model: electra-native
+Accuracy:  0.647
+Precision: 0.180
+Recall:    0.182
+F1:        0.181
+
+Confusion Matrix:
+                Predicted
+              No    Yes
+Actual No    5275   1544
+       Yes   1517    338

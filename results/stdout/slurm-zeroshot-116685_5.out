@@ -1,0 +1,102 @@
+========================================
+Ejecutando Zero-Shot NLI
+Modelo: cross-encoder
+Task ID: 5
+Fecha: Fri 13 Feb 2026 09:24:09 AM UTC
+========================================
+
+======================================================================
+ZERO-SHOT NLI CLASSIFIER - EXPLICIT CONTENT DETECTION
+======================================================================
+🚀 GPU detectada: NVIDIA A100-SXM4-40GB (39.4 GB VRAM)
+
+📂 Cargando dataset desde: results/lyrics/lyrics_10k.csv
+   Filas totales: 8674
+   Distribución: 1855 explicit (21.4%) | 6819 clean (78.6%)
+
+🔧 Cargando modelo: cross-encoder/nli-deberta-v3-large
+   Cross-Encoder DeBERTa V3 Large for NLI (435M params)
+   ✅ Modelo cargado correctamente
+
+🔄 Ejecutando inferencia con chunking inteligente...
+   Template: 'This song contains {}.'
+   Labels: ['profanity, sexual content, violence, drugs, or hate speech', 'clean and family-friendly content']
+   Max tokens/chunk: 450
+   Overlap tokens: 50
+   Estrategia: ANY-POSITIVE (si algún chunk es explícito → canción explícita)
+
+📊 Estadísticas de chunking:
+   Total chunks procesados: 12061
+   Promedio chunks/canción: 1.39
+   Máximo chunks en una canción: 8
+   Canciones divididas en múltiples chunks: 2714 (31.3%)
+======================================================================
+INFORME DE CLASIFICACIÓN ZERO-SHOT NLI
+======================================================================
+
+Modelo: cross-encoder
+ID: cross-encoder/nli-deberta-v3-large
+Descripción: Cross-Encoder DeBERTa V3 Large for NLI (435M params)
+Fecha: 2026-02-13 09:53:28
+
+Hypothesis Template: "This song contains {}."
+Candidate Labels: ['profanity, sexual content, violence, drugs, or hate speech', 'clean and family-friendly content']
+
+======================================================================
+ESTRATEGIA DE CHUNKING
+======================================================================
+
+Estrategia: ANY-POSITIVE (si algún chunk es explícito → canción explícita)
+Max tokens por chunk: 450
+Overlap tokens: 50
+
+Estadísticas:
+  - Total chunks procesados:     12061
+  - Promedio chunks/canción:     1.39
+  - Máximo chunks en una canción: 8
+  - Canciones con múltiples chunks: 2714 (31.3%)
+
+======================================================================
+MÉTRICAS DE CLASIFICACIÓN
+======================================================================
+
+Accuracy:  0.7861
+Precision: 0.0000
+Recall:    0.0000
+F1-Score:  0.0000
+AUC-ROC:   0.2898
+
+======================================================================
+MATRIZ DE CONFUSIÓN
+======================================================================
+
+                    Predicted
+                 No (Clean)  Yes (Explicit)
+Actual No (Clean)      6819             0
+Actual Yes (Explicit)  1855             0
+
+Interpretación:
+  - True Negatives (TN):    6819 (Clean clasificado como Clean)
+  - False Positives (FP):      0 (Clean clasificado como Explicit)
+  - False Negatives (FN):   1855 (Explicit clasificado como Clean)
+  - True Positives (TP):       0 (Explicit clasificado como Explicit)
+
+======================================================================
+TIEMPOS DE EJECUCIÓN
+======================================================================
+
+Muestras procesadas: 8674
+Tiempo total:        1720.32 segundos
+Tiempo promedio:     198.33 ms/muestra
+Velocidad:           5.0 muestras/segundo
+
+======================================================================
+
+📄 Informe guardado en: results/zeroshot_cross-encoder.txt
+📊 Predicciones guardadas en: results/lyrics/lyrics_10k_predictions_zeroshot_cross-encoder.csv
+
+✅ Ejecución completada exitosamente
+========================================
+Finalizado: cross-encoder
+Tiempo: Fri 13 Feb 2026 09:53:36 AM UTC
+========================================

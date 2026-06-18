@@ -1,0 +1,11 @@
+Model: electra-discriminator
+Accuracy:  0.607
+Precision: 0.234
+Recall:    0.368
+F1:        0.286
+
+Confusion Matrix:
+                Predicted
+              No    Yes
+Actual No    4584   2235
+       Yes   1172    683
